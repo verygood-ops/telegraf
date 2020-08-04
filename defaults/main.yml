@@ -56,6 +56,10 @@ telegraf_influxdb_ssl_cert:
 telegraf_influxdb_ssl_key:
 telegraf_influxdb_insecure_skip_verify:
 
+telegraf_influxdb_org:
+telegraf_influxdb_bucket:
+telegraf_influxdb_token:
+
 telegraf_influxdb_timeout: 5s
 telegraf_influxdb_username:
 telegraf_influxdb_password:
