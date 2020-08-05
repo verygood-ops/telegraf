@@ -85,12 +85,13 @@
 
 # Configuration for influxdb server to send metrics to
 {% if telegraf_influxdb_enabled %}
+{% for url in telegraf_influxdb_urls %}
 [[outputs.influxdb]]
   # The full HTTP or UDP endpoint URL for your InfluxDB instance.
   # Multiple urls can be specified but it is assumed that they are part of the same
   # cluster, this means that only ONE of the urls will be written to each interval.
   # urls = ["udp://localhost:8089"] # UDP endpoint example
-  urls = [ "{{ telegraf_influxdb_urls|join('","') }}" ] # required
+  urls = [ "{{ url }}" ] # required
   # The target database for metrics (telegraf will create it if not exists)
   database = "{{ telegraf_influxdb_database }}" # required
   # Precision of writes, valid values are n, u, ms, s, m, and h
@@ -135,6 +136,8 @@
 {% if telegraf_influxdb_insecure_skip_verify is defined and telegraf_influxdb_insecure_skip_verify != None %}
   # insecure_skip_verify = telegraf_influxdb_insecure_skip_verify
 {% endif %}
+
+{% endfor %}
 {% endif %}
 
 {% if telegraf_socket_writer_enabled %}
