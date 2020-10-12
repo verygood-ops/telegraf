@@ -18,6 +18,7 @@
     source /etc/lsb-release
     echo "deb https://repos.influxdata.com/ubuntu trusty stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
     apt-get update
+  when: telegraf_install_url is not defined or telegraf_install_url == None
   changed_when: false
 
 # by some reason update_cache flag doesn't work well
