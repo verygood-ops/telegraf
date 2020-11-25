@@ -1,17 +1,4 @@
 ---
-- name: Install any necessary dependencies [Debian/Ubuntu]
-  apt:
-    name: "{{ item }}"
-    state: present
-    update_cache: yes
-    cache_valid_time: 3600
-  with_items:
-    - python-httplib2
-    - python-apt
-    - curl
-    - apt-transport-https
-  changed_when: false
-
 - name: add influx repo
   shell: |
     curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
