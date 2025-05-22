@@ -1,10 +1,9 @@
 ---
-
-- include: install-redhat.yml
+- include_tasks: install-redhat.yml
   when: telegraf_install_s3_path == None and ansible_os_family == "RedHat"
 
-- include: install-debian.yml
+- include_tasks: install-debian.yml
   when: telegraf_install_s3_path == None and ansible_os_family == "Debian"
 
-- include: install-rpm.yml
+- include_tasks: install-rpm.yml
   when: telegraf_install_s3_path != None

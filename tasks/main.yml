@@ -1,10 +1,10 @@
 ---
-- include: install.yml
+- include_tasks: install.yml
   tags: telegraf_install
 
-- include: configure.yml
+- include_tasks: configure.yml
   tags: telegraf_configure
 
-- include: start.yml
+- include_tasks: start.yml
   tags: telegraf_start
   when: telegraf_start_service
