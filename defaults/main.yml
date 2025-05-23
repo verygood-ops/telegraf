@@ -96,6 +96,4 @@ telegraf_plugins_extra:
       pid_file: "/var/lib/neo4j/data/neo4j-service.pid"
       prefix: "neo4j_proc"
 
-telegraf_plugins: "{{ telegraf_plugins_base }} + {{ telegraf_plugins_extra | default([]) }}"
-
 telegraf_influxdata_base_url: "https://repos.influxdata.com"
